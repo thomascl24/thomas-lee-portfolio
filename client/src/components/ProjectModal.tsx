@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Project } from "@/lib/constants";
 
@@ -15,9 +15,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     <Dialog open={!!project} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle className="text-3xl font-bold text-slate-900">
+          <DialogTitle className="text-3xl font-bold text-slate-900 dark:text-slate-100">
             {project.title}
           </DialogTitle>
+          <DialogDescription className="text-slate-600 dark:text-slate-400">
+            {project.description}
+          </DialogDescription>
         </DialogHeader>
         
         <div className="space-y-6">
