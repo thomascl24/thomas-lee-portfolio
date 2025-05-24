@@ -5,18 +5,17 @@ import { Badge } from "@/components/ui/badge";
 
 export default function ResumeSection() {
   const handleDownloadResume = () => {
-    // In a real application, this would download the actual resume PDF
     const link = document.createElement('a');
-    link.href = '/resume.pdf'; // This would be a real PDF file
+    link.href = '/Thomas_Lee_Resume.pdf';
     link.download = 'Thomas_Lee_Resume.pdf';
     link.click();
   };
 
   return (
-    <section id="resume" className="py-16 bg-white min-h-screen">
+    <section id="resume" className="py-16 bg-white dark:bg-slate-900 min-h-screen">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6">Resume</h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-slate-900 dark:text-slate-100 mb-6">Resume</h1>
           <Button 
             onClick={handleDownloadResume}
             className="bg-primary text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-lg"
@@ -27,38 +26,44 @@ export default function ResumeSection() {
         </div>
         
         <div className="max-w-4xl mx-auto space-y-12">
-          {/* Basics */}
-          <Card>
+          {/* Professional Profile */}
+          <Card className="bg-white dark:bg-slate-800">
             <CardContent className="p-8">
-              <h2 className="text-3xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-primary">Basics</h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-xl font-semibold text-slate-900 mb-2">Thomas Lee</h3>
-                  <p className="text-slate-600">Data Scientist</p>
-                  <p className="text-slate-600">Berkeley, CA</p>
-                </div>
-                <div>
-                  <p className="text-slate-600 mb-1">📧 thomascl@berkeley.edu</p>
-                  <p className="text-slate-600 mb-1">📞 510-230-7619</p>
-                  <p className="text-slate-600">🌐 linkedin.com/in/thomaslee24</p>
-                </div>
-              </div>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-6 pb-2 border-b-2 border-primary">Professional Profile</h2>
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                Early-career data professional with two years of experience in data science and machine learning, leveraging analytical 
+                thinking and technical proficiency to deliver impactful insights. Skilled in Python and machine learning with a strong foundation 
+                in statistical analysis for data-driven decision-making and a growing portfolio of applied data science projects.
+              </p>
             </CardContent>
           </Card>
           
           {/* Education */}
-          <Card>
+          <Card className="bg-white dark:bg-slate-800">
             <CardContent className="p-8">
-              <h2 className="text-3xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-primary">Education</h2>
-              <div className="flex justify-between items-start">
-                <div>
-                  <h3 className="text-xl font-semibold text-slate-900">University of California, Berkeley</h3>
-                  <p className="text-lg text-slate-700">Bachelor of Science in Data Science</p>
-                  <p className="text-slate-600">
-                    Relevant Coursework: Machine Learning, Statistical Analysis, Data Visualization, Database Systems
-                  </p>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-6 pb-2 border-b-2 border-primary">Education</h2>
+              <div className="space-y-6">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100">University of California, Berkeley</h3>
+                    <p className="text-lg text-slate-700 dark:text-slate-300">Master of Information and Data Science | 4.0 GPA</p>
+                    <p className="text-slate-600 dark:text-slate-400">
+                      Relevant Coursework: Machine Learning Systems Engineering (Docker, Kubernetes), Natural Language Processing with 
+                      Deep Learning, Research Design and Applications for Data and Analysis, Statistics for Data Science
+                    </p>
+                  </div>
+                  <Badge variant="outline" className="text-slate-600 dark:text-slate-400 font-medium">August 2025</Badge>
                 </div>
-                <Badge variant="outline" className="text-slate-600 font-medium">2020 - 2024</Badge>
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100">University of California, Berkeley</h3>
+                    <p className="text-lg text-slate-700 dark:text-slate-300">B.A. in Computer Science, Minor in Data Science | 3.9 GPA</p>
+                    <p className="text-slate-600 dark:text-slate-400">
+                      Upsilon Pi Epsilon Member: International Computing and Information honor society (top 30% of undergraduates)
+                    </p>
+                  </div>
+                  <Badge variant="outline" className="text-slate-600 dark:text-slate-400 font-medium">May 2024</Badge>
+                </div>
               </div>
             </CardContent>
           </Card>
