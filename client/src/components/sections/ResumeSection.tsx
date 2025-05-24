@@ -68,103 +68,91 @@ export default function ResumeSection() {
             </CardContent>
           </Card>
           
-          {/* Work Experience */}
-          <Card>
+          {/* Experience */}
+          <Card className="bg-white dark:bg-slate-800">
             <CardContent className="p-8">
-              <h2 className="text-3xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-primary">Work Experience</h2>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-6 pb-2 border-b-2 border-primary">Experience</h2>
               <div className="space-y-8">
                 <div className="flex justify-between items-start">
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-slate-900">Data Science Intern</h3>
-                    <p className="text-lg text-slate-700 mb-2">Tech Startup Inc.</p>
-                    <ul className="text-slate-600 space-y-1">
-                      <li>• Developed predictive models improving customer retention by 25%</li>
-                      <li>• Created automated data pipelines processing 1M+ records daily</li>
-                      <li>• Built interactive dashboards for executive decision-making</li>
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100">Data Science Intern</h3>
+                    <p className="text-lg text-slate-700 dark:text-slate-300 mb-2">East Bay Municipal Utility District</p>
+                    <ul className="text-slate-600 dark:text-slate-400 space-y-1">
+                      <li>• Improved accessibility to water for 30,000 low-income families, reducing water bills for low-income families by 31% by constructing an optimized water rate structure using SciPy optimization functions</li>
+                      <li>• Conducted cost-benefit analysis for advanced metering technology initiative projected to affect 400,000 customers, guiding long-term investment strategy and saving $25M per year</li>
+                      <li>• Streamlined vendor data access by implementing an Amazon Redshift-based pipeline, replacing costly $1,500 per request extractions with automated data streaming</li>
+                      <li>• Designed executive-facing dashboards in Power BI and Tableau to visualize rate equity and water usage trends across 1.4M customers, reducing turnaround time for policy analysis from weeks to days</li>
+                      <li>• Managed data access and privacy workflows for company collaborations with three UC Berkeley research groups, providing mentorship with data analysis and ensuring regulatory compliance</li>
                     </ul>
                   </div>
-                  <Badge variant="outline" className="text-slate-600 font-medium ml-4">Summer 2023</Badge>
+                  <Badge variant="outline" className="text-slate-600 dark:text-slate-400 font-medium ml-4">May 2024 – Present</Badge>
                 </div>
                 
                 <div className="flex justify-between items-start">
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-slate-900">Research Assistant</h3>
-                    <p className="text-lg text-slate-700 mb-2">UC Berkeley Data Science Lab</p>
-                    <ul className="text-slate-600 space-y-1">
-                      <li>• Conducted statistical analysis on large-scale social media datasets</li>
-                      <li>• Implemented machine learning algorithms for sentiment analysis</li>
-                      <li>• Co-authored research paper on natural language processing</li>
+                    <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100">Machine Learning Intern</h3>
+                    <p className="text-lg text-slate-700 dark:text-slate-300 mb-2">Eikon Therapeutics</p>
+                    <ul className="text-slate-600 dark:text-slate-400 space-y-1">
+                      <li>• Identified 20 promising drug treatment candidates from over 200,000 compounds using an extended isolation forest machine learning model for anomaly detection</li>
+                      <li>• Created a neural network architecture with TensorFlow, classifying protein agonists and antagonists with over 84% accuracy from a highly noisy dataset</li>
+                      <li>• Engineered a Python-based ETL data pipeline to accelerate data extraction, cleaning, and preprocessing, boosting data request efficiency by 22% for a team of 10+ scientists</li>
                     </ul>
                   </div>
-                  <Badge variant="outline" className="text-slate-600 font-medium ml-4">2022 - 2023</Badge>
+                  <Badge variant="outline" className="text-slate-600 dark:text-slate-400 font-medium ml-4">May 2022 – Aug 2023</Badge>
                 </div>
               </div>
             </CardContent>
           </Card>
           
+          {/* Projects */}
+          <Card className="bg-white dark:bg-slate-800">
+            <CardContent className="p-8">
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-6 pb-2 border-b-2 border-primary">Projects</h2>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100">Predicting Card Power and Synergy in Pokemon Trading Card Game (TCG)</h3>
+                  <p className="text-slate-600 dark:text-slate-400 mb-2">April 2025</p>
+                  <ul className="text-slate-600 dark:text-slate-400 space-y-1">
+                    <li>• Enabled early price estimation for newly released cards by modeling latent card strength prior to observed gameplay performance and predicted novel card combinations with high synergy to give players a competitive edge</li>
+                    <li>• Fine-tuned BERT and RoBERTa-based NLP regression models and created custom card embeddings to efficiently identify and isolate relevant information from raw card text</li>
+                  </ul>
+                </div>
+                
+                <div>
+                  <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100">San Francisco Crime Interactive Dashboard</h3>
+                  <p className="text-slate-600 dark:text-slate-400 mb-2">March 2025</p>
+                  <ul className="text-slate-600 dark:text-slate-400 space-y-1">
+                    <li>• Designed and constructed interactive Tableau data visualizations for temporal, geographic, and trend analysis of San Francisco crime</li>
+                    <li>• Created Flask web application to embed data visualizations into a user-friendly dashboard</li>
+                  </ul>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Skills */}
-          <Card>
+          <Card className="bg-white dark:bg-slate-800">
             <CardContent className="p-8">
-              <h2 className="text-3xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-primary">Skills</h2>
-              <div className="grid md:grid-cols-3 gap-8">
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 mb-6 pb-2 border-b-2 border-primary">Skills</h2>
+              <div className="space-y-6">
                 <div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-3">Programming</h3>
-                  <div className="space-y-2">
-                    {[
-                      { name: "Python", level: "Expert" },
-                      { name: "R", level: "Advanced" },
-                      { name: "SQL", level: "Advanced" },
-                      { name: "JavaScript", level: "Intermediate" }
-                    ].map((skill) => (
-                      <div key={skill.name} className="flex justify-between">
-                        <span className="text-slate-700">{skill.name}</span>
-                        <span className="text-slate-500">{skill.level}</span>
-                      </div>
-                    ))}
-                  </div>
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">Programming Languages</h3>
+                  <p className="text-slate-700 dark:text-slate-300">
+                    Python (TensorFlow, Keras, NumPyro, XGBoost, NumPy, Pandas, Matplotlib, Seaborn, Scikit-Learn), 
+                    SQL (MySQL, Amazon Redshift), R, NoSQL (Neo4j)
+                  </p>
                 </div>
                 
                 <div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-3">Tools & Frameworks</h3>
-                  <div className="space-y-2">
-                    {[
-                      { name: "TensorFlow", level: "Advanced" },
-                      { name: "Scikit-learn", level: "Expert" },
-                      { name: "Pandas", level: "Expert" },
-                      { name: "Docker", level: "Intermediate" }
-                    ].map((skill) => (
-                      <div key={skill.name} className="flex justify-between">
-                        <span className="text-slate-700">{skill.name}</span>
-                        <span className="text-slate-500">{skill.level}</span>
-                      </div>
-                    ))}
-                  </div>
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">Data Visualization and Analysis Tools</h3>
+                  <p className="text-slate-700 dark:text-slate-300">Tableau, Power BI, Dash</p>
                 </div>
                 
                 <div>
-                  <h3 className="text-lg font-semibold text-slate-900 mb-3">Specializations</h3>
-                  <div className="space-y-2">
-                    {["Machine Learning", "Statistical Analysis", "Data Visualization", "Deep Learning", "NLP"].map((spec) => (
-                      <div key={spec} className="text-slate-700">{spec}</div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          
-          {/* Languages */}
-          <Card>
-            <CardContent className="p-8">
-              <h2 className="text-3xl font-bold text-slate-900 mb-6 pb-2 border-b-2 border-primary">Languages</h2>
-              <div className="grid md:grid-cols-2 gap-8">
-                <div className="flex justify-between">
-                  <span className="text-lg text-slate-700">English</span>
-                  <span className="text-slate-600">Native</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-lg text-slate-700">Mandarin</span>
-                  <span className="text-slate-600">Conversational</span>
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-3">Other Tools</h3>
+                  <p className="text-slate-700 dark:text-slate-300">
+                    Kubernetes, Docker, AWS, Git/GitHub, HuggingFace, Visual Studio, RStudio
+                  </p>
                 </div>
               </div>
             </CardContent>
