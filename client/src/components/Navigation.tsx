@@ -27,51 +27,22 @@ export default function Navigation() {
             </Link>
           </div>
           
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link key={item.href} href={item.href}>
-                <span className={`nav-link transition-colors font-medium cursor-pointer ${
-                  location === item.href
-                    ? 'text-primary'
-                    : 'text-slate-700 dark:text-slate-300 hover:text-primary'
-                }`}>
-                  {item.label}
-                </span>
-              </Link>
-            ))}
+          {/* Navigation Links */}
+          <div className="flex items-center space-x-6">
+            <div className="flex items-center space-x-6">
+              {navItems.map((item) => (
+                <Link key={item.href} href={item.href}>
+                  <span className={`nav-link transition-colors font-medium cursor-pointer text-sm md:text-base ${
+                    location === item.href
+                      ? 'text-primary'
+                      : 'text-slate-700 dark:text-slate-300 hover:text-primary'
+                  }`}>
+                    {item.label}
+                  </span>
+                </Link>
+              ))}
+            </div>
             <ThemeToggle />
-          </div>
-          
-          {/* Mobile menu */}
-          <div className="md:hidden flex items-center space-x-2">
-            <ThemeToggle />
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6" />
-                  <span className="sr-only">Open menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[300px]">
-                <div className="flex flex-col space-y-4 mt-8">
-                  {navItems.map((item) => (
-                    <Link key={item.href} href={item.href}>
-                      <span 
-                        onClick={() => setIsOpen(false)}
-                        className={`block px-4 py-2 rounded-md transition-colors cursor-pointer ${
-                          location === item.href
-                            ? 'text-primary bg-slate-100 dark:bg-slate-800'
-                            : 'text-slate-700 dark:text-slate-300 hover:text-primary hover:bg-slate-100 dark:hover:bg-slate-800'
-                        }`}
-                      >
-                        {item.label}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </SheetContent>
-            </Sheet>
           </div>
         </div>
       </div>
