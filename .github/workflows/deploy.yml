@@ -1,0 +1,92 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      
+      - name: Install dependencies
+        run: npm ci
+      
+      - name: Build for GitHub Pages
+        run: |
+          # Create a temporary vite config for static build
+          cat > vite.pages.config.ts << 'EOF'
+          import { defineConfig } from "vite";
+          import react from "@vitejs/plugin-react";
+          import path from "path";
+
+          export default defineConfig({
+            plugins: [react()],
+            resolve: {
+              alias: {
+                "@": path.resolve(__dirname, "client", "src"),
+                "@shared": path.resolve(__dirname, "shared"),
+                "@assets": path.resolve(__dirname, "attached_assets"),
+              },
+            },
+            root: path.resolve(__dirname, "client"),
+            build: {
+              outDir: path.resolve(__dirname, "github-pages"),
+              emptyOutDir: true,
+            },
+            base: "./",
+          });
+          EOF
+          
+          # Build with the GitHub Pages config
+          npx vite build --config vite.pages.config.ts
+          
+          # Ensure index.html exists
+          if [ ! -f "./github-pages/index.html" ]; then
+            echo "Error: index.html not found in build output"
+            ls -la ./github-pages/
+            exit 1
+          fi
+          
+          # Disable Jekyll processing
+          touch ./github-pages/.nojekyll
+          
+          # Handle client-side routing for single-page apps
+          cp ./github-pages/index.html ./github-pages/404.html
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './github-pages'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
