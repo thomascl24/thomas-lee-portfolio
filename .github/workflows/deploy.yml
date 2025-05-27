@@ -32,8 +32,8 @@ jobs:
       
       - name: Build for GitHub Pages
         run: |
-          # Create a temporary vite config for static build
-          cat > vite.pages.config.ts << 'EOF'
+          # Create a vite config for GitHub Pages at root level
+          cat > vite.gh-pages.config.ts << 'EOF'
           import { defineConfig } from "vite";
           import react from "@vitejs/plugin-react";
           import path from "path";
@@ -42,29 +42,32 @@ jobs:
             plugins: [react()],
             resolve: {
               alias: {
-                "@": path.resolve(__dirname, "client", "src"),
+                "@": path.resolve(__dirname, "src"),
                 "@shared": path.resolve(__dirname, "shared"),
                 "@assets": path.resolve(__dirname, "attached_assets"),
               },
             },
-            root: path.resolve(__dirname, "client"),
             build: {
-              outDir: path.resolve(__dirname, "github-pages"),
+              outDir: "dist",
               emptyOutDir: true,
             },
             base: "./",
           });
           EOF
           
-          # Build with the GitHub Pages config
-          npx vite build --config vite.pages.config.ts
+          # Build the project
+          npx vite build --config vite.gh-pages.config.ts
           
-          # Ensure index.html exists
-          if [ ! -f "./github-pages/index.html" ]; then
-            echo "Error: index.html not found in build output"
-            ls -la ./github-pages/
+          # Verify index.html exists
+          if [ ! -f "./dist/index.html" ]; then
+            echo "Error: index.html not found in dist/"
+            ls -la ./dist/
             exit 1
           fi
+          
+          # Create the final GitHub Pages directory
+          mkdir -p ./github-pages
+          cp -r ./dist/* ./github-pages/
           
           # Disable Jekyll processing
           touch ./github-pages/.nojekyll
